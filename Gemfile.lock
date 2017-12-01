@@ -24,5 +24,8 @@ DEPENDENCIES
   make_todo
   sinatra
 
+RUBY VERSION
+   ruby 2.2.5p319
+
 BUNDLED WITH
    1.16.0

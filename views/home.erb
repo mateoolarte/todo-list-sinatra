@@ -1,0 +1,40 @@
+<% if @tasks.empty? %>
+  <h2>Crea tu primera tarea</h2>
+<% else %>
+  <h2>Crea una tarea</h2>
+<% end %>
+
+<form action="/search" method="get">
+  <input type="text" name="search_task">
+  <input type="submit" value="Buscar">
+</form>
+
+<form action="/create" method="post">
+  <input type="text" name="name_task" class="new-task-input" autofocus>
+  <input type="submit" value="Enviar">
+</form>
+
+<h3>Lista de tareas</h3>
+<h4>Tareas por realizar</h4>
+<ul class="tasks-unfinished">
+  <% @tasks.each do |element|  %>
+    <li <%= element["done"] == true ? 'class="completed"' : '' %>>
+      <span>
+        <form action="/update/<%= element["id"] %>" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <input type="submit" value="Marcar como completa">
+        </form>
+      </span>
+      <%= element["title"]  %>
+      <span>
+        <form action="/delete/<%= element["id"] %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Eliminar" class="delete-task">
+        </form>
+      </span>
+    </li>
+  <% end %>
+</ul>
+
+<h4>Tareas terminadas</h4>
+<ul class="tasks-done"></ul>

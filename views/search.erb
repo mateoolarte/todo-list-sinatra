@@ -1,0 +1,20 @@
+<% if @hola == nil %>
+  <h1>No se encontró la tarea</h1>
+<% else %>
+  <p <%= @hola["done"] == true ? 'class="completed"' : '' %>>
+        <span>
+        <form action="/update/<%= @hola["id"] %>" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <input type="submit" value="Marcar como completa">
+        </form>
+      </span>
+      <%= @hola["title"]  %>
+      <span>
+        <form action="/delete/<%= @hola["id"] %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Eliminar">
+        </form>
+      </span>
+  </p>
+<% end %>
+<a href="/">Volver a todas las tareas</a>

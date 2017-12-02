@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;  
+  color: #212121;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #00d2ff;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+}
+
+.container-todo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 650px;
+  height: 550px;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  overflow-y: scroll;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.heading {
+  margin: 0;
+  padding: 20px 20px;
+  text-align: center;
+  background: #f09f32;
+  color: white;
+  font-weight: normal;
+}
+
+.add-task {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 0;
+}
+
+.add-task__name {
+  width: 90%;
+  margin-right: 20px;
+  border: 0;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: lighter;
+  font-style: italic;
+  border: 1px solid rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.add-task__submit {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #f09f32;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.add-task__submit:hover,
+.search-task__submit:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.add-task__submit span {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+}
+
+.search-task {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.search-task__name {
+  width: 80%;
+  margin-right: 10px;
+  border: 0;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: lighter;
+  font-style: italic;
+  border: 1px solid rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.search-task__submit {
+  border: 0;
+  padding: 10px;
+  background-color: #f09f32;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+}
+
+.tasks-container {
+  margin: 0;
+  padding-left: 0;
+}
+
+.tasks-container li {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-top: 1px solid rgba(0,0,0,0.16);
+}
+
+.tasks-container strong {
+  flex-basis: 90%;
+  font-weight: normal;
+}
+
+.icon-action button {
+  border: 0;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.tasks-container .marks-done {
+  margin-right: 20px;
+}
+
+.tasks-container .marks-done button:hover {
+  color: #43A047;
+}
+
+.tasks-container .delete-task {
+  margin-left: 20px;
+}
+
+.tasks-container .delete-task button:hover {
+  color: #e53935;
+}
+
+.tasks-done li {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.tasks-done .marks-done button {
+  color: #43A047;
+}
+
+/* Search Page */
+.task-not-found {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.task-container-search {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-top: 1px solid rgba(0,0,0,0.16);
+}
+
+.task-container-search strong {
+  flex-basis: 90%;
+  font-weight: normal;
+}
+
+.task-container-search .marks-done {
+  margin-right: 20px;
+}
+
+.task-container-search .marks-done button:hover {
+  color: #43A047;
+}
+
+.task-container-search .delete-task {
+  margin-left: 20px;
+}
+
+.task-container-search .delete-task button:hover {
+  color: #e53935;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #f09f32;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+}
+/* Search Page */
+
+@media (max-width: 650px) {
+  .container-todo {
+    width: 100%;
+    height: 100%;
+  }
+
+  .add-task__name {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  .add-task__submit {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .add-task__submit span {
+    font-size: 32px;
+  }
+
+  .search-task {
+    width: 90%;
+  }
+  
+  .search-task__name {
+    width: 70%;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+}

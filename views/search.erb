@@ -1,20 +1,23 @@
-<% if @hola == nil %>
-  <h1>No se encontró la tarea</h1>
+<% if @search_task == nil %>
+  <h1 class="task-not-found">Lo sentimos la tarea que estas buscando no se encuentra :(</h1>
 <% else %>
-  <p <%= @hola["done"] == true ? 'class="completed"' : '' %>>
-        <span>
-        <form action="/update/<%= @hola["id"] %>" method="post">
-          <input type="hidden" name="_method" value="patch">
-          <input type="submit" value="Marcar como completa">
-        </form>
-      </span>
-      <%= @hola["title"]  %>
-      <span>
-        <form action="/delete/<%= @hola["id"] %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Eliminar">
-        </form>
-      </span>
-  </p>
+  <div class="task-container-search">
+    <span class="icon-action marks-done">
+      <form action="/update/<%= @search_task["id"] %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <button type="submit">✓</button>
+      </form>
+    </span>
+    <strong><%= @search_task["title"] %></strong>
+    <span class="icon-action delete-task">
+      <form action="/delete/<%= @search_task["id"] %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">✗</button>
+      </form>
+    </span>
+  </div>
 <% end %>
-<a href="/">Volver a todas las tareas</a>
+
+<div class="text-center">
+  <a href="/" class="btn-back">Volver a todas las tareas</a>
+</div>

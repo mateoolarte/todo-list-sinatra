@@ -10,7 +10,7 @@ get '/search' do
   @param_task = params["search_task"]
   @tasks = Tarea.all
 
-  @hola = @tasks.find do |i|
+  @search_task = @tasks.find do |i|
     i["title"] == @param_task
   end
 
